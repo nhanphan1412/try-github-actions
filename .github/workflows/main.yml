@@ -28,10 +28,10 @@ jobs:
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - name: Save state
-        run: echo "{name}={value}" >> $GITHUB_STATE
+        run: echo "::save-state name={name}::{value}"
 
       - name: Set output
-        run: echo "{name}={value}" >> $GITHUB_OUTPUT
+        run: echo "::set-output name={name}::{value}"
 
       - uses: actions/cache@v1
         with:

@@ -25,13 +25,14 @@ jobs:
 
       - name: Get yarn cache
         id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - name: Save state
         run: echo "{name}={value}" >> $GITHUB_STATE
 
       - name: Set output
         run: echo "{name}={value}" >> $GITHUB_OUTPUT
-        
+
       - uses: actions/cache@v1
         with:
           path: ${{ steps.yarn-cache.outputs.dir }}

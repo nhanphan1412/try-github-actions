@@ -33,7 +33,7 @@ jobs:
       - name: Set output
         run: echo "::set-output name={name}::{value}"
 
-      - uses: actions/cache
+      - uses: actions/cache@v1
         with:
           path: ${{ steps.yarn-cache.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/package.json') }} # TODO: Use yarn.lock instead, if that file exists in your repo.

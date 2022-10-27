@@ -22,12 +22,12 @@ jobs:
         uses: actions/checkout@master
         with:
           persist-credentials: false
+          
+      - name: Save state
+        run: echo "::save-state name={name}::{value}"
 
-      - name: Get yarn cache
-        id: yarn-cache
-        run: 
-          echo "::set-state name=dir::$(yarn cache dir)"
-          echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Set output
+        run: echo "::set-output name={name}::{value}"
 
       - uses: actions/cache@v1
         with:
